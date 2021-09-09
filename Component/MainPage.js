@@ -2,6 +2,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import AddFridge from './AddFridge';
+import FridgeItem from './FridgeItem';
 
 
 class MainPage extends React.Component {
@@ -17,6 +18,10 @@ class MainPage extends React.Component {
     this.props.navigation.navigate("CreateFridgePage");
   }
 
+  _redirectionDetailFridge = () => {
+    this.props.navigation.navigate("CreateFridgePage");
+  }
+
 
   render(){
     return (     
@@ -24,7 +29,9 @@ class MainPage extends React.Component {
         <View style={styles.container_FridgeListe}>
 
           <Text>Welcome to Fridge App!</Text>
-          
+          <View>
+            <FridgeItem redirectionDetailFridge={this._redirectionCreateFridgePage}/>
+          </View>
         </View>
 
         <View style={styles.main_container_btn}>

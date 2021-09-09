@@ -24,7 +24,9 @@ const MainPageStackNavigator = createStackNavigator({
     navigationOptions: {
     title: 'Add Fridge'
     }
-  }
+  },
+  
+  
 })
 
 export default createAppContainer(MainPageStackNavigator)
