@@ -10,23 +10,23 @@ class AddFridge extends React.Component{
             sousMenu: false,
         }
     }
+
+    
     
     _onPressButton = () => {       
         this.setState(previousState => ({ sousMenu: !previousState.sousMenu }));
         console.log(this.state.sousMenu);
     }
 
-    _redirectionCreateFridgePage = () => {
-        this.props.navigation.navigate("CreateFridgePage");
-    }
 
     render() {
+        const redirectionCreateFridgePage = this.props.redirectionCreateFridgePage; //(ES6)
         return(      
             <View>
                 { 
                     this.state.sousMenu ? 
                         <View>
-                            <TouchableHighlight onPress={() => this._redirectionCreateFridgePage()} underlayColor="white">
+                            <TouchableHighlight onPress={() => redirectionCreateFridgePage()} underlayColor="white">
                                 <View style={styles.container_option}>
                                     <Text style={styles.logo}>Ajouter un frigo</Text>
                                 </View>

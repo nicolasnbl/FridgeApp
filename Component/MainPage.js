@@ -11,6 +11,12 @@ class MainPage extends React.Component {
     this.props.navigation.navigate("Connexion");
   }
 
+  
+
+  _redirectionCreateFridgePage = () => {
+    this.props.navigation.navigate("CreateFridgePage");
+  }
+
 
   render(){
     return (     
@@ -32,7 +38,7 @@ class MainPage extends React.Component {
           </View>
 
           <View style={styles.container_btn}>
-            <AddFridge style={styles.addFridge}/>
+            <AddFridge style={styles.addFridge} redirectionCreateFridgePage={this._redirectionCreateFridgePage} />
           </View>       
 
         </View>
