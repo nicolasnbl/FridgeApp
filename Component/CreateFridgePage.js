@@ -1,17 +1,17 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-import Navigation from './Navigation/Navigation';
 
-export default class App extends React.Component {
+
+class CreateFridgePage extends React.Component {
+
+
 
 
   render(){
     return (     
       <View style={styles.container}>
-
-        <Navigation />      
-
+          <Text>create fridge!!!!</Text>
       </View>
 
     );
@@ -20,11 +20,9 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    width: '100%',
+
   },
- 
 
 });
+
+export default CreateFridgePage
