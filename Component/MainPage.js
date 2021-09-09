@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     position: 'absolute',
     width: '100%',
-    bottom: 50,    
+    bottom: 70,    
   },
   container_btn: {
     display: 'flex',
