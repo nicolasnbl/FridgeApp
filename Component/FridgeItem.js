@@ -11,8 +11,8 @@ class FridgeItem extends React.Component {
   render(){
       const redirectionDetailFridge = this.props.redirectionDetailFridge;
     return (     
-      <TouchableHighlight style={styles.container} onPress={() => redirectionDetailFridge()} underlayColor="white">
-            <View>
+      <TouchableHighlight style={styles.container_touchable} onPress={() => redirectionDetailFridge()} underlayColor="white">
+            <View style={styles.container}>
                 <View style={styles.container_title}>
                     <Text>Mon Frigo</Text>
                 </View>
