@@ -28,9 +28,19 @@ class FridgeItem extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+    container_touchable: {
+        width: '100%',
+        backgroundColor: 'white',
+    },
+    container: {
     backgroundColor: 'white',
     width: '100%',
+    borderWidth: 1,
+  },
+  container_title: {
+    borderBottomWidth: 1,
+    padding: 10,
+    fontSize: 25,
   },
 
 });

@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import MainPage from '../Component/MainPage'
 import Connexion from '../Component/Connexion'
 import CreateFridgePage from '../Component/CreateFridgePage'
+import DetailFridgePage from '../Component/DetailFridgePage'
 
 const MainPageStackNavigator = createStackNavigator({
   MainPage: { // Ici j'ai appelé la vue "Search" mais on peut mettre ce que l'on veut. C'est le nom qu'on utilisera pour appeler cette vue
@@ -23,6 +24,12 @@ const MainPageStackNavigator = createStackNavigator({
     screen: CreateFridgePage,
     navigationOptions: {
     title: 'Add Fridge'
+    }
+  },
+  DetailFridgePage: {
+    screen: DetailFridgePage,
+    navigationOptions: {
+    title: 'Detail Fridge'
     }
   },
   

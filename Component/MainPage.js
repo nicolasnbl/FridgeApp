@@ -18,8 +18,8 @@ class MainPage extends React.Component {
     this.props.navigation.navigate("CreateFridgePage");
   }
 
-  _redirectionDetailFridge = () => {
-    this.props.navigation.navigate("CreateFridgePage");
+  _redirectionDetailFridgePage = () => {
+    this.props.navigation.navigate("DetailFridgePage");
   }
 
 
@@ -29,8 +29,8 @@ class MainPage extends React.Component {
         <View style={styles.container_FridgeListe}>
 
           <Text>Welcome to Fridge App!</Text>
-          <View>
-            <FridgeItem redirectionDetailFridge={this._redirectionCreateFridgePage}/>
+          <View style={styles.container_FridgeItem}>
+            <FridgeItem style={styles.FridgeItem} redirectionDetailFridge={this._redirectionDetailFridgePage}/>
           </View>
         </View>
 
@@ -87,7 +87,10 @@ const styles = StyleSheet.create({
   main_container_btn: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',    
+    justifyContent: 'space-between',
+    position: 'absolute',
+    width: '100%',
+    bottom: 50,    
   },
   container_btn: {
     display: 'flex',
@@ -101,6 +104,13 @@ const styles = StyleSheet.create({
 
   },
   container_connexionLogo: {
+
+  },
+  container_FridgeItem: {
+    width: '100%',
+    backgroundColor: 'white',
+  },
+  FridgeItem: {
 
   },
 
