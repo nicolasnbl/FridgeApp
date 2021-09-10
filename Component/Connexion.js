@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight} from 'react-native';
 
 
 class Connexion extends React.Component {
@@ -13,8 +13,6 @@ class Connexion extends React.Component {
       <View style={styles.container}>
           <Text>Connexion!!!!</Text>
 
-          
-            <Label>Email</Label>
 
       </View>
 

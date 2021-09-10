@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
 
+
 class CreateFridgePage extends React.Component {
 
 

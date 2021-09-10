@@ -20,9 +20,6 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-//import { Container, Content, Header } from 'native-base';
-
-
 
 //--------------------------------------------------------------//
 
@@ -34,7 +31,7 @@ export default class App extends React.Component {
     return (     
       <View style={styles.container}>
 
-        <Navigation />      
+        <Navigation />   
 
       </View>
 
