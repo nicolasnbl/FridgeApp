@@ -2,10 +2,10 @@
 
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
-import MainPage from '../Component/MainPage'
-import Connexion from '../Component/Connexion'
-import CreateFridgePage from '../Component/CreateFridgePage'
-import DetailFridgePage from '../Component/DetailFridgePage'
+import MainPage from '../Screen/MainPage'
+import Connexion from '../Screen/Connexion'
+import CreateFridgePage from '../Screen/CreateFridgePage'
+import DetailFridgePage from '../Screen/DetailFridgePage'
 
 const MainPageStackNavigator = createStackNavigator({
   MainPage: { // Ici j'ai appelé la vue "Search" mais on peut mettre ce que l'on veut. C'est le nom qu'on utilisera pour appeler cette vue

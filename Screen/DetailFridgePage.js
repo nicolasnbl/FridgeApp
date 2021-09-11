@@ -8,7 +8,7 @@ class DetailFridgePage extends React.Component {
 
 
   render(){
-    return (     
+    return (
       <View style={styles.container}>
           <Text>Fridge Detail</Text>
       </View>

@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-import AddFridge from './AddFridge';
-import FridgeItem from './FridgeItem';
+import AddFridge from '../Component/AddFridge';
+import FridgeItem from '../Component/FridgeItem';
 
 
 class MainPage extends React.Component {
