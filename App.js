@@ -6,11 +6,13 @@ import Navigation from './Navigation/Navigation';
 //---------------------------- Partie database ----------------------------------//
 
 import firebase from 'firebase'
-import {firebaseConfig} from './Database/config'
+import { firebaseConfig } from './Database/config'
 
 // Initialize Firebase
 
-firebase.initializeApp(firebaseConfig);
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 
 //--------------------------------------------------------------//
@@ -18,12 +20,46 @@ firebase.initializeApp(firebaseConfig);
 
 export default class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      loaded: false,
 
-  render(){
-    return (     
+    }
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        this.setState({
+          loggedIn: false,
+          loaded: true,
+        })
+
+      }
+      else {
+        this.setState({
+          loggedIn: true,
+          loaded: true,
+        })
+      }
+    })
+  }
+
+  render() {
+    const { loggedIn, loaded } = this.state;
+    if(!loggedIn){
+      alert('test');
+      return(
+        <View>
+          <Text>Loading</Text>
+        </View>
+      )
+    }
+    return (
       <View style={styles.container}>
 
-        <Navigation />   
+        <Navigation />
 
       </View>
 
@@ -38,6 +74,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
   },
- 
+
 
 });

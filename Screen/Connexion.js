@@ -2,14 +2,39 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Button } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import { borderWidth } from 'styled-system';
-import { borderColor } from 'styled-system';
-import { border } from 'styled-system';
-import { flex } from 'styled-system';
+
+import * as firebase from 'firebase'
 
 class Connexion extends React.Component {
 
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      email: '',
+      password: ''
+
+    }
+
+    this._onSignIn = this._onSignIn.bind(this)
+  }
+
+  _onSignIn() {
+    const { email, password } = this.state;
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
+
+
+  _redirectionInscription() {
+    this.props.navigation.navigate("Inscription");
+  }
 
 
   render() {
@@ -19,13 +44,33 @@ class Connexion extends React.Component {
 
         <View style={styles.container_input}>
           <TextInput
-            placeholder="name"
-            onChangeText={(name) => this.setState({ name })}
+            placeholder="email"
+            onChangeText={(email) => this.setState({ email })}
+            style={styles.input}
+          />
+          <TextInput
+            placeholder="Password"
+            secureTextEntry={true}
+            onChangeText={(password) => this.setState({ password })}
             style={styles.input}
           />
         </View>
 
-        <Button title="Connexion avec Google" onPress={() => alert('btn press')} />
+        <Button
+          onPress={() => this._onSignIn()}
+          title="Connexion"
+        />
+
+        <Button
+          title="Connexion avec Google"
+          onPress={() => alert('btn press')}
+        />
+
+        <Button
+          title="S'inscrir"
+          onPress={() => this._redirectionInscription()}
+        />
+
       </View>
 
     );

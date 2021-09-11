@@ -8,6 +8,7 @@ import CreateFridgePage from '../Screen/CreateFridgePage'
 import DetailFridgePage from '../Screen/DetailFridgePage'
 import LoadingPage from '../Screen/LoadingPage'
 import Profil from '../Screen/Profil'
+import Inscription from '../Screen/Inscription'
 
 const MainPageStackNavigator = createStackNavigator({
   MainPage: { // Ici j'ai appelé la vue "Search" mais on peut mettre ce que l'on veut. C'est le nom qu'on utilisera pour appeler cette vue
@@ -35,11 +36,15 @@ const MainPageStackNavigator = createStackNavigator({
     }
   },
   LoadingPage: {
-    screen: LoadingPage
+    screen: LoadingPage,
   },
   Profil: {
-    screen: Profil
-  }
+    screen: Profil,
+  },
+  Inscription: {
+    screen: Inscription,
+    title: 'Inscription'
+  },
   
   
 })
