@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Button } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
-import * as firebase from 'firebase'
+import firebase from 'firebase'
 
 class Connexion extends React.Component {
 

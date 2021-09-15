@@ -3,6 +3,13 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import Navigation from './Navigation/Navigation';
 
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from "redux"  // from "redux" important ! car sinon bug avec la fonction applyMiddleware
+import rootReducer from './Redux/reducers'
+import thunk from 'redux-thunk'
+
+
+
 //---------------------------- Partie database ----------------------------------//
 
 import firebase from 'firebase'
@@ -16,6 +23,9 @@ if (firebase.apps.length === 0) {
 
 
 //--------------------------------------------------------------//
+
+
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 
 export default class App extends React.Component {
@@ -48,20 +58,20 @@ export default class App extends React.Component {
 
   render() {
     const { loggedIn, loaded } = this.state;
-    if(!loggedIn){
-      alert('test');
-      return(
+    if (!loaded) {
+      return (
         <View>
           <Text>Loading</Text>
         </View>
       )
     }
+    
     return (
-      <View style={styles.container}>
-
-        <Navigation />
-
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Navigation />
+        </View>
+      </Provider>
 
     );
   }
@@ -77,3 +87,5 @@ const styles = StyleSheet.create({
 
 
 });
+
+

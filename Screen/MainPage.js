@@ -4,15 +4,25 @@ import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import AddFridge from '../Component/AddFridge';
 import FridgeItem from '../Component/FridgeItem';
 
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {fetchUser} from '../Redux/actions/index'
+
 
 class MainPage extends React.Component {
+
+  
+
+  componentDidMount() {
+    this.props.fetchUser();
+  }
 
 
   _redirectionPageConnexion = () => {
     this.props.navigation.navigate("Connexion");
   }
 
-  
+
 
   _redirectionCreateFridgePage = () => {
     this.props.navigation.navigate("CreateFridgePage");
@@ -23,30 +33,40 @@ class MainPage extends React.Component {
   }
 
 
-  render(){
-    return (     
+  render() {
+
+    const { currentUser } = this.props;
+
+    if(currentUser==undefined){
+      return(
+        <View></View>
+      )
+    }
+
+    return (
       <View style={styles.container}>
         <View style={styles.container_FridgeListe}>
 
-          <Text>Welcome to Fridge App!</Text>
+          <Text>Welcome to Fridge App {currentUser.name} !</Text>
           <View style={styles.container_FridgeItem}>
-            <FridgeItem style={styles.FridgeItem} redirectionDetailFridge={this._redirectionDetailFridgePage}/>
+            <FridgeItem style={styles.FridgeItem} redirectionDetailFridge={this._redirectionDetailFridgePage} />
           </View>
+
         </View>
 
         <View style={styles.main_container_btn}>
 
           <View style={styles.container_btn}>
             <TouchableHighlight onPress={() => this._redirectionPageConnexion()} underlayColor="white">
-                <View style={styles.container_connexionLogo}>
-                    <Text style={styles.connexionLogo}>Connexion</Text>
-                </View>
+              <View style={styles.container_connexionLogo}>
+                <Text style={styles.connexionLogo}>Connexion</Text>
+              </View>
             </TouchableHighlight>
           </View>
 
           <View style={styles.container_btn}>
             <AddFridge style={styles.addFridge} redirectionCreateFridgePage={this._redirectionCreateFridgePage} />
-          </View>       
+          </View>
 
         </View>
 
@@ -90,12 +110,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     position: 'absolute',
     width: '100%',
-    bottom: 70,    
+    bottom: 70,
   },
   container_btn: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',    
+    justifyContent: 'flex-end',
     marginRight: 10,
     marginLeft: 10,
     backgroundColor: 'purple',
@@ -116,4 +136,10 @@ const styles = StyleSheet.create({
 
 });
 
-export default MainPage
+const mapStateToProps = (store) => ({
+  currentUser: store.userState.currentUser
+})
+const mapDispatchProps = (dispatch) => bindActionCreators({fetchUser}, dispatch);
+
+
+export default connect(mapStateToProps, mapDispatchProps)(MainPage);

@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableHighlight, Button } from 'react-native
 import { TextInput } from 'react-native-gesture-handler';
 import { createAppContainer } from 'react-navigation';
 
-import * as firebase from 'firebase'
+import firebase from 'firebase'
 
 class Inscription extends React.Component {
 
@@ -25,6 +25,12 @@ class Inscription extends React.Component {
         const { name, email, password } = this.state;
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((result) => {
+                firebase.firestore().collection("users")
+                .doc(firebase.auth().currentUser.uid)
+                .set({
+                  name,
+                  email
+                })
                 console.log(result);
             })
             .catch((error) => {
